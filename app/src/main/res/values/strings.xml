@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VoltWise</string>
+    <string name="app_subtitle">Power &amp; Activity Monitor</string>
+
+    <!-- Navigation Items -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_apps">App Power</string>
+    <string name="nav_history">History</string>
+    <string name="nav_diagnostics">Diagnostics</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Dashboard -->
+    <string name="title_live_telemetry">Live Power Telemetry</string>
+    <string name="status_discharging">Discharging</string>
+    <string name="status_charging">Charging</string>
+    <string name="status_full">Battery Full</string>
+    <string name="status_not_charging">Not Charging</string>
+    <string name="status_unknown">Unknown</string>
+    
+    <string name="label_power">Power Draw</string>
+    <string name="label_current">Current (mA)</string>
+    <string name="label_voltage">Voltage (V)</string>
+    <string name="label_temperature">Temp (°C)</string>
+    <string name="label_health">Health</string>
+    <string name="label_plug">Source</string>
+    <string name="label_capacity">Capacity</string>
+    <string name="label_screen_state">Screen State</string>
+    
+    <string name="monitoring_active">Continuous Monitoring Active</string>
+    <string name="monitoring_inactive">Monitoring Paused</string>
+    <string name="btn_start_monitor">Start Monitor</string>
+    <string name="btn_stop_monitor">Stop Monitor</string>
+    <string name="est_remaining_drain">Estimated Remaining:</string>
+    <string name="est_remaining_charge">Time to Full Charge:</string>
+    <string name="calculating">Calculating…</string>
+
+    <!-- App Power Monitoring -->
+    <string name="title_app_consumption">Application Power Breakdown</string>
+    <string name="filter_1h">1 Hour</string>
+    <string name="filter_6h">6 Hours</string>
+    <string name="filter_24h">24 Hours</string>
+    <string name="filter_7d">7 Days</string>
+    <string name="sort_power">Sort: Power</string>
+    <string name="sort_time">Sort: Time</string>
+    <string name="sort_name">Sort: Name</string>
+    <string name="user_apps_only">User Apps Only</string>
+    <string name="all_apps">All Apps &amp; System</string>
+    <string name="total_consumed_energy">Total Energy Drained: %s</string>
+    <string name="foreground_time_format">Active: %s</string>
+    <string name="power_mah_format">Est. %s mAh (%s%%)</string>
+
+    <!-- History & Logs -->
+    <string name="title_battery_history">Battery &amp; Temp Trend</string>
+    <string name="title_sessions">Historical Monitoring Snapshots</string>
+    <string name="empty_history">No historical logs recorded yet. Start the monitoring service to log data.</string>
+    <string name="btn_export_csv">Export CSV</string>
+    <string name="btn_clear_history">Clear History</string>
+
+    <!-- Diagnostics -->
+    <string name="title_diagnostics">System Power Insights</string>
+    <string name="card_standby_buckets">Android App Standby Buckets</string>
+    <string name="card_battery_health">Hardware Health Rating</string>
+    <string name="card_power_hogs">Resource-Intensive Activities</string>
+    <string name="no_power_hogs_detected">No rogue background drain detected. Apps are operating within normal limits.</string>
+
+    <!-- Settings & Permissions -->
+    <string name="title_settings">Settings &amp; System Permissions</string>
+    <string name="perm_usage_title">Usage Access Permission</string>
+    <string name="perm_usage_desc">Required by Android OS to inspect active tasks, foreground duration, and application standby states.</string>
+    <string name="perm_notif_title">Notification Permission</string>
+    <string name="perm_notif_desc">Required to keep the low-overhead telemetry service alive in the background.</string>
+    <string name="perm_battery_opt_title">Ignore Battery Optimization</string>
+    <string name="perm_battery_opt_desc">Prevents aggressive OEM task killers from freezing the telemetry logger.</string>
+    <string name="btn_grant">Grant</string>
+    <string name="granted">Granted</string>
+    <string name="btn_open_settings">Open Settings</string>
+
+    <string name="pref_interval_title">Sampling Interval</string>
+    <string name="pref_interval_summary">Frequency of battery and process snapshots</string>
+    <string name="interval_1m">1 Minute (High Precision)</string>
+    <string name="interval_5m">5 Minutes (Recommended)</string>
+    <string name="interval_15m">15 Minutes (Low Overhead)</string>
+
+    <!-- Notification Strings -->
+    <string name="notif_channel_id">voltwise_monitor_channel</string>
+    <string name="notif_channel_name">VoltWise Background Monitor</string>
+    <string name="notif_channel_desc">Real-time status of battery power consumption and active processes.</string>
+    <string name="notif_title">VoltWise Active Monitor</string>
+    <string name="notif_content_format">Battery: %d%% | %s | %s mW | %s °C</string>
+</resources>

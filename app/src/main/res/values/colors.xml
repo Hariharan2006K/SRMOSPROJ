@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand & Accent Colors -->
+    <color name="primary">#00C853</color>
+    <color name="primary_variant">#009624</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <color name="secondary">#00E5FF</color>
+    <color name="secondary_variant">#00B0FF</color>
+    <color name="on_secondary">#000000</color>
+
+    <color name="accent_blue">#2979FF</color>
+    <color name="accent_purple">#7C4DFF</color>
+
+    <!-- Battery Status Colors -->
+    <color name="battery_good">#00E676</color>
+    <color name="battery_moderate">#FFD600</color>
+    <color name="battery_warning">#FF9100</color>
+    <color name="battery_critical">#FF5252</color>
+    <color name="battery_charging">#00E5FF</color>
+
+    <!-- Temperature Colors -->
+    <color name="temp_cool">#00E5FF</color>
+    <color name="temp_normal">#00E676</color>
+    <color name="temp_warm">#FFAB00</color>
+    <color name="temp_hot">#FF1744</color>
+
+    <!-- Dark Theme Neutral Palette -->
+    <color name="bg_dark">#0F141C</color>
+    <color name="surface_dark">#181F2A</color>
+    <color name="surface_variant_dark">#232D3B</color>
+    <color name="card_stroke_dark">#313E4F</color>
+    <color name="text_primary_dark">#F1F5F9</color>
+    <color name="text_secondary_dark">#94A3B8</color>
+    <color name="text_tertiary_dark">#64748B</color>
+    <color name="divider_dark">#1E293B</color>
+
+    <!-- Light Theme Neutral Palette -->
+    <color name="bg_light">#F8FAFC</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_variant_light">#EDF2F7</color>
+    <color name="card_stroke_light">#E2E8F0</color>
+    <color name="text_primary_light">#0F172A</color>
+    <color name="text_secondary_light">#475569</color>
+    <color name="text_tertiary_light">#94A3B8</color>
+    <color name="divider_light">#E2E8F0</color>
+</resources>
