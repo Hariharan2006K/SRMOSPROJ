@@ -17,6 +17,9 @@
             android:id="@+id/cardStatusBanner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardBackgroundColor="@color/surface_dark"
             app:strokeColor="@color/card_stroke_dark"
             app:strokeWidth="1dp"
@@ -60,8 +63,12 @@
 
         <!-- Circular Battery Gauge Card -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBatteryGauge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardBackgroundColor="@color/surface_dark"
             app:strokeColor="@color/card_stroke_dark"
             app:strokeWidth="1dp"
@@ -82,8 +89,12 @@
 
                 <!-- Estimated Time Remaining Badge -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardRemainingEstimate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/surface_variant_dark"
                     app:strokeColor="@color/card_stroke_dark"
                     app:strokeWidth="1dp"
@@ -119,14 +130,30 @@
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Section Title: Live Telemetry Grid -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_live_telemetry"
-            android:textColor="@color/text_primary_dark"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title_live_telemetry"
+                android:textColor="@color/text_primary_dark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap card for AI breakdown"
+                android:textColor="@color/secondary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <!-- Row 1: Power (mW) and Current (mA) -->
         <LinearLayout
@@ -137,10 +164,14 @@
 
             <!-- Card: Instantaneous Power -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPower"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"
@@ -180,10 +211,14 @@
 
             <!-- Card: Current (mA) -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCurrent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"
@@ -231,10 +266,14 @@
 
             <!-- Card: Voltage -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVoltage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"
@@ -274,10 +313,14 @@
 
             <!-- Card: Temperature -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTemperature"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"
@@ -325,10 +368,14 @@
 
             <!-- Card: Health -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHealth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"
@@ -368,10 +415,14 @@
 
             <!-- Card: Power Source -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPlugSource"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_dark"
                 app:strokeColor="@color/card_stroke_dark"
                 app:strokeWidth="1dp"

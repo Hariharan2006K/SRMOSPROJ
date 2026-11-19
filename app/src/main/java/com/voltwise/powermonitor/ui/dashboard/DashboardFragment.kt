@@ -16,7 +16,6 @@ import com.voltwise.powermonitor.battery.BatteryStatus
 import com.voltwise.powermonitor.databinding.FragmentDashboardBinding
 import com.voltwise.powermonitor.util.FormatUtils
 import kotlinx.coroutines.launch
-import kotlin.math.abs
 
 class DashboardFragment : Fragment() {
 
@@ -41,6 +40,8 @@ class DashboardFragment : Fragment() {
             viewModel.toggleService()
         }
 
+        setupCardClickListeners()
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -57,6 +58,39 @@ class DashboardFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setupCardClickListeners() {
+        binding.cardPower.setOnClickListener {
+            openDetailSheet(MetricType.POWER)
+        }
+        binding.cardCurrent.setOnClickListener {
+            openDetailSheet(MetricType.CURRENT)
+        }
+        binding.cardVoltage.setOnClickListener {
+            openDetailSheet(MetricType.VOLTAGE)
+        }
+        binding.cardTemperature.setOnClickListener {
+            openDetailSheet(MetricType.TEMPERATURE)
+        }
+        binding.cardHealth.setOnClickListener {
+            openDetailSheet(MetricType.HEALTH)
+        }
+        binding.cardPlugSource.setOnClickListener {
+            openDetailSheet(MetricType.PLUG_SOURCE)
+        }
+        binding.cardBatteryGauge.setOnClickListener {
+            openDetailSheet(MetricType.BATTERY_GAUGE)
+        }
+        binding.cardRemainingEstimate.setOnClickListener {
+            openDetailSheet(MetricType.TIME_ESTIMATE)
+        }
+    }
+
+    private fun openDetailSheet(type: MetricType) {
+        val info = viewModel.batteryInfo.value ?: return
+        val sheet = FeatureDetailBottomSheet.newInstance(type, info)
+        sheet.show(childFragmentManager, "FeatureDetailBottomSheet")
     }
 
     private fun updateUI(info: BatteryInfo) {

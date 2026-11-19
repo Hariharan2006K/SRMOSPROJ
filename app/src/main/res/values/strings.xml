@@ -88,4 +88,15 @@
     <string name="notif_channel_desc">Real-time status of battery power consumption and active processes.</string>
     <string name="notif_title">VoltWise Active Monitor</string>
     <string name="notif_content_format">Battery: %d%% | %s | %s mW | %s °C</string>
+
+    <!-- Feature Detail & AI Intelligence -->
+    <string name="label_tap_for_ai">Tap for AI Insights</string>
+    <string name="title_feature_detail">System Metric Intelligence</string>
+    <string name="section_hardware_physics">Hardware Physics &amp; Operating Principle</string>
+    <string name="section_live_status">Live Telemetry &amp; Risk Rating</string>
+    <string name="section_ai_advice">AI Power Recommendation</string>
+    <string name="section_technical_formula">Engineering Formula</string>
+    <string name="btn_close">Close Analysis</string>
+    <string name="title_thermal_predictor">AI Thermal Throttling Predictor</string>
+    <string name="title_eco_footprint">Eco-Energy Carbon Index</string>
 </resources>

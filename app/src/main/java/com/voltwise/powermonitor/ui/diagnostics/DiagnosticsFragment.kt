@@ -13,7 +13,10 @@ import com.voltwise.powermonitor.battery.BatteryHealth
 import com.voltwise.powermonitor.battery.BatteryTelemetryManager
 import com.voltwise.powermonitor.data.repository.PowerRepository
 import com.voltwise.powermonitor.databinding.FragmentDiagnosticsBinding
+import com.voltwise.powermonitor.estimator.EcoImpactCalculator
 import com.voltwise.powermonitor.estimator.PowerAttributionEngine
+import com.voltwise.powermonitor.estimator.ThermalAnalyticsEngine
+import com.voltwise.powermonitor.estimator.ThermalRiskLevel
 import com.voltwise.powermonitor.usage.AppUsageManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,7 +52,30 @@ class DiagnosticsFragment : Fragment() {
     private fun evaluateDiagnostics() {
         val snapshot = telemetryManager.getBatterySnapshot()
 
-        // 1. Hardware Battery Health & Thermal Evaluation
+        // 1. Thermal Throttling Predictor
+        val thermalReport = ThermalAnalyticsEngine.analyzeThermalState(
+            currentTempCelsius = snapshot.temperatureCelsius,
+            powerMw = snapshot.powerMw
+        )
+        binding.tvThermalRiskBadge.text = thermalReport.riskLevel.displayName
+        val thermalColor = when (thermalReport.riskLevel) {
+            ThermalRiskLevel.OPTIMAL -> R.color.battery_good
+            ThermalRiskLevel.MODERATE -> R.color.temp_warm
+            ThermalRiskLevel.HIGH_RISK -> R.color.temp_hot
+            ThermalRiskLevel.CRITICAL_THROTTLING -> R.color.battery_critical
+        }
+        binding.tvThermalRiskBadge.setTextColor(ContextCompat.getColor(requireContext(), thermalColor))
+        binding.tvThermalReportText.text = thermalReport.technicalSummary
+        binding.tvThermalRecommendationText.text = thermalReport.aiRecommendation
+
+        // 2. Eco Impact & Carbon Index
+        val eco = EcoImpactCalculator.calculateEcoMetrics(snapshot.powerMw)
+        binding.tvEcoGradeBadge.text = "Grade: ${eco.ecoGrade}"
+        binding.tvEcoGradeBadge.setTextColor(ContextCompat.getColor(requireContext(), R.color.battery_good))
+        binding.tvEcoMetricsText.text = "Hourly Intake: ${String.format("%.2f", eco.hourlyEnergyWh)} Wh | Daily Grid CO₂ Footprint: ${String.format("%.1f", eco.estimatedCarbonGramsDaily)}g"
+        binding.tvEcoAdviceText.text = eco.ecoInsight
+
+        // 3. Hardware Battery Health Evaluation
         val healthScoreText: String
         val healthColor: Int
         val healthAdviceText: String
@@ -76,7 +102,7 @@ class DiagnosticsFragment : Fragment() {
         binding.tvHealthScore.setTextColor(healthColor)
         binding.tvHealthAdvice.text = healthAdviceText
 
-        // 2. Power Hogs Anomaly Detection
+        // 4. Power Hogs Anomaly Detection
         viewLifecycleOwner.lifecycleScope.launch {
             val hogs = withContext(Dispatchers.IO) {
                 if (usageManager.hasUsagePermission()) {

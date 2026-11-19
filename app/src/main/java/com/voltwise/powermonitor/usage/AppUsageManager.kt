@@ -150,7 +150,7 @@ class AppUsageManager(private val context: Context) {
     private fun getStandbyBucketName(packageName: String): String {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && usageStatsManager != null) {
             return try {
-                when (usageStatsManager.getAppStandbyBucket(packageName)) {
+                when (usageStatsManager.getAppStandbyBucket()) {
                     UsageStatsManager.STANDBY_BUCKET_ACTIVE -> "ACTIVE"
                     UsageStatsManager.STANDBY_BUCKET_WORKING_SET -> "WORKING_SET"
                     UsageStatsManager.STANDBY_BUCKET_FREQUENT -> "FREQUENT"

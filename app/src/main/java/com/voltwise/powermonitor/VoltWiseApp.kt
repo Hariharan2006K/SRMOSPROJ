@@ -1,7 +1,6 @@
 package com.voltwise.powermonitor
 
 import android.app.Application
-import com.voltwise.powermonitor.data.AppDatabase
 import com.voltwise.powermonitor.data.repository.PowerRepository
 import com.voltwise.powermonitor.service.BatteryNotificationHelper
 
